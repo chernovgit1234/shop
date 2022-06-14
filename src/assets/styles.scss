@@ -1,0 +1,112 @@
+
+@import "./variables.scss";
+@import "./null.scss";
+@import "./fonts.scss";
+@import "./icons.scss";
+@import "./mixins.scss";
+@import "./componentStyles/common.scss";
+@import "./componentStyles/home.scss";
+@import "./componentStyles/cart.scss";
+@import "./componentStyles/order.scss";
+@import "./componentStyles/product.scss";
+@import "./toolsStyles/popup.scss";
+@import "./componentStyles/app.scss";
+@import "./componentStyles/header.scss";
+@import "./componentStyles/footer.scss";
+@import "./componentStyles/catalog.scss";
+@import "./formsStyles/button.scss";
+@import "./formsStyles/rating.scss";
+@import "./formsStyles/select.scss";
+@import "./formsStyles/range.scss";
+@import "./formsStyles/checkbox.scss";
+@import "./formsStyles/input.scss";
+@import "./formsStyles/quantity.scss";
+@import "./formsStyles/radio.scss";
+
+body {
+	font-weight: 500;
+	
+	// Скролл заблокирован
+	.lock & {
+		overflow: hidden;
+		touch-action: none;
+	}
+	// Сайт загружен
+	.loaded & {
+	}
+}
+
+// Ограничивающий контейнер ======================================================================================================================================================================================================================
+
+/*
+(i) Стили будут применяться ко 
+всем классам содержащим *__container
+Например header__container, main__container и т.д.
+Снипет (HTML): cnt
+*/
+@if ($responsiveType==1) {
+	// Отзывчивая
+	[class*="__container"] {
+		@if ($maxWidthContainer>0) {
+			max-width: rem($maxWidthContainer);
+			box-sizing: content-box;
+			margin: 0 auto;
+		}
+		@if ($containerPadding>0) {
+			padding: 0 rem(15);
+		}
+	}
+} @else {
+	// По брейк-поинтам
+	[class*="__container"] {
+		margin: 0 auto;
+		@if ($maxWidthContainer>0) {
+			max-width: rem($maxWidthContainer);
+			box-sizing: content-box;
+		} @else {
+			@if ($containerPadding>0) {
+				padding: 0 rem(15);
+			}
+		}
+		@media (max-width: $pc) {
+			max-width: rem(970);
+		}
+		@media (max-width: $tablet) {
+			max-width: rem(750);
+		}
+		@media (max-width: $mobile) {
+			max-width: none;
+			@if ($containerPadding>0 and $maxWidthContainer>0) {
+				padding: 0 rem(15);
+			}
+		}
+	}
+}
+
+.page {
+	// .page_home
+	&_home {
+	}
+	// .page_inner
+	&_inner {
+		padding-top: rem(30);
+	}
+
+	// .page__header
+	&__header {
+		margin-bottom: rem(30);
+	}
+
+	// .page__main-block
+	&__main-block {
+	}
+	// .page__catalog-cards
+	&__catalog-cards {
+	}
+	// .page__articles-module
+	&__articles-module {
+	}
+	// .page__products-block
+	&__products-block {
+	}
+}

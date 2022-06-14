@@ -1,0 +1,274 @@
+@use "sass:math";
+
+.order {
+
+    &__body {
+        width: 72%;
+        @media (max-width:$tablet){
+            width: 100%;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        @include adaptiveValue("padding-bottom", 30, 20);
+    }
+
+    &__receiving {
+      @include adaptiveValue("padding-bottom", 15, 10);
+    }
+
+    &__data {
+    }
+
+    &__pay {
+    }
+
+    &__check {
+        @include adaptiveValue("padding-bottom", 25, 10);
+    }
+}
+.receiving-block {   
+    width: 100%;
+
+    &__title {
+        display: flex;
+        gap: rem(45);
+        justify-content: start;
+        align-items: center;  
+    }
+
+    &__text {
+       
+    }
+
+    &__dott {
+        letter-spacing: 0.05em;
+		font-size: rem(20);
+		font-weight: 600;
+		line-height: math.div(46, 30);
+        
+        span {
+            width: rem(34);
+            height: rem(34);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background-color: $orangeColor;
+            color: #fff;
+        }
+    }
+
+    &__content {
+        @include adaptiveValue("padding-bottom", 15, 10);
+        @include adaptiveValue("padding-top", 15, 10);
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+        width: 100%;
+
+        @media (max-width:$mobile){
+            gap: rem(10);
+            flex-direction: column;  
+        }
+    }
+
+    
+
+}
+.title {
+}
+.pickup-content {
+    border: 1px solid rgb(213, 210, 210);
+    @include adaptiveValue("padding-left", 60, 10);
+    @include adaptiveValue("padding-top", 30, 10);
+    @include adaptiveValue("padding-bottom", 30, 10);
+    @include adaptiveValue("padding-right", 10, 5);
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    @media (any-hover: hover){
+        &:hover{
+            border: 1px solid $orangeColor;
+        }
+    }
+
+    @media (max-width:$mobile){
+        width: 100%; 
+    }
+
+    &__active {
+        border: 1px solid $orangeColor;;
+    }
+
+
+    &__title {
+        color: $mainColor;
+        font-size: rem(18);
+        font-weight: 600;
+        line-height: math.div(18, 30);
+    }
+
+    &__title-text {
+        color: rgb(144, 143, 143);
+        font-size: rem(18);
+        font-weight: 600;
+        line-height: math.div(46, 30);
+        @include adaptiveValue("padding-bottom", 30, 15);
+       
+    }
+
+    &__text {
+        color: $mainColor;
+        font-size: rem(15);
+        line-height: math.div(35, 25);
+
+        span {
+            color: rgb(55, 220, 66);
+        }
+    }
+
+    &__active {
+    
+    }
+}
+
+.data-block {
+    @include adaptiveValue("padding-bottom", 15, 10);
+    @include adaptiveValue("padding-top", 15, 10);
+
+    &__title {
+        display: flex;
+        gap: rem(45);
+        justify-content: start;
+        align-items: center;
+    }
+
+    &__dott {
+    }
+
+    &__content {
+        @include adaptiveValue("padding-top", 20, 10);
+        @include adaptiveValue("padding-bottom", 20, 10);
+        display: grid;
+        grid-template: repeat(2, auto) / repeat(2, 1fr);
+
+        @media (max-width:$mobile){
+            display: grid;
+            grid-template-columns: 1fr ;
+            width: 100%;  
+        }
+    }
+
+    &__item {
+
+        display: flex;
+        flex-direction: column;
+        padding: rem(5);
+        position: relative;
+
+        &__btn {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        
+        small {
+          position: absolute;
+          top: rem(98);
+          color: red;
+          font-size: rem(15);
+        }
+    }
+
+    &__label {
+        padding: rem(8);
+        color: rgb(144, 143, 143);
+    }
+
+    &__input {
+        padding: rem(15);
+        border: 1px solid rgb(144, 143, 143);
+
+        &_invalid {
+            border: 1px solid red;
+        }
+    }
+
+}
+
+.checkbox-order {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    
+    padding-left: rem(5);
+    
+
+    &__input {
+      display: none;
+    }
+
+    &__input:checked + &__label::after {
+      transform: scale(1);
+    }
+
+    &__label {
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+
+      span {
+       white-space: nowrap;
+       @media (max-width:$mobile){
+        white-space: normal; 
+       }
+      }
+    }
+
+    &__label::before {
+      content: "";
+      align-self: start;
+      flex: 0 0 rem(24);
+      height: rem(24);
+      background-color: #fff;
+      border-radius: rem(4);
+      border: 1px solid $orangeColor;
+      margin-right: rem(10);
+    }
+
+    &__label::after {
+        content: "";
+        width: rem(16);
+        height: rem(16);
+        position: absolute;
+        top: rem(4);
+        left: rem(4);
+        background-color:  $orangeColor;
+        border-radius: rem(4);
+        transform: scale(0);
+        transition: transform 0.3s ease 0s;
+  
+      }
+
+    &__text {
+        font-weight: 600;
+    }
+}
+
+.order {
+
+    &__submit {
+        justify-content: center;
+        display: flex;
+        padding: 10px;
+    }
+}
+

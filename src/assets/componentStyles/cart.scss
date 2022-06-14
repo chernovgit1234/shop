@@ -1,0 +1,183 @@
+.cart {
+
+    &__title {
+        @include adaptiveValue("margin-top", 60, 10);
+    }
+
+    &__body {
+        min-width: 100%;
+        transform:translateX(0px);
+        @include adaptiveValue("margin-bottom", 100, 40);
+    }
+
+    &__table {
+
+    }
+
+    &__board {
+    }
+
+    &__nocontent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        @include adaptiveValue("min-height", 600, 200);
+
+        &__btn {
+            padding: rem(8) rem(15);
+            color: #fff;
+            font-size: rem(25);
+            background-color: $orangeColor;
+            border-radius: rem(5);
+        }
+    }
+    
+}
+
+.table-cards {
+    width: 72%;
+    @media (max-width:$tablet){
+        width: 100%;
+    }
+    &__items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: rem(10);
+    }
+
+    &__item {
+
+    }
+}
+.item-card-tables {
+    width: 100%;
+    &__body {
+        display: flex;
+        flex-direction: row;
+        gap: rem(10);
+        align-items: center;
+        justify-content: space-between;
+        padding: rem(5) rem(10);
+    }
+
+    &__card {
+        display: flex;
+        font-display: row;
+        align-items: center;
+        @media (max-width:$mobile){
+             flex-direction: column;
+        }
+    }
+
+    &__image {
+        width: 30%;
+        height:  30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media (max-width:$mobile){
+            min-width: 50%;
+            min-height:  50%; 
+        } 
+        &_ibg {
+            margin: rem(5);
+            object-fit: contain;
+            width: 80%;
+            height: 80%;
+            @media (max-width:$mobile){
+                width: 100%;
+                min-height: 100%;
+            }
+        }
+        
+    }
+
+    &__content {
+        display: grid;
+        align-items: center;
+        gap: rem(10);
+        @media (min-width: $mobileSmall) {
+            grid-template-columns: rem(100) auto;
+        }
+    }
+
+    &__label {
+        @media (max-width:$tablet){
+            @include adaptiveValue("font-size", 25, 12);
+        }
+        }
+      
+
+
+    &__value {
+        color: rgba(20, 20, 20, 0.5);
+        @include adaptiveValue("font-size", 25, 12);
+    }
+
+    &__actions {
+        cursor: pointer;
+        @media (any-hover: hover){
+            &:hover{
+                color: rgb(255, 1, 1);
+            }
+        }
+    }
+}
+
+.board-cart {
+    &__block {
+       
+        @include adaptiveValue("width", 400, 200,2500 , 991, 1);
+        border: 1px solid rgb(187, 178, 178);
+        padding: rem(20);
+        position: fixed;
+        right: rem(0);
+        top: rem(-35);
+        @media (max-width:$tablet){
+            display: none;
+        }
+    }
+
+    &__title {
+    }
+
+    &__info {
+        display: grid;
+        align-items: center;
+        gap: rem(10);
+        padding-bottom: rem(25);
+
+        @media (min-width: $mobileSmall) {
+            grid-template-columns: auto auto;
+        }
+    }
+
+    &__order {
+        border: 3px solid rgb(0, 0, 0);
+        display: flex;
+        align-items: center;
+        padding: rem(10);
+        border-radius: rem(5);
+        justify-content: center;
+        cursor: pointer;
+        @media (any-hover: hover){
+            &:hover{
+                background-color: $orangeColor;
+            }
+        }
+    }
+
+    &__label {
+        @media (max-width:$tablet){
+            @include adaptiveValue("font-size", 25, 12);
+        }
+        }
+      
+    &__value {
+        color: rgba(20, 20, 20, 0.5);
+        @include adaptiveValue("font-size", 25, 12);
+    }
+}
